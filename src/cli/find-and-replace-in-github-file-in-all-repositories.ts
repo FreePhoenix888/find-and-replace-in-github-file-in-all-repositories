@@ -3,7 +3,7 @@
 import { Octokit } from '@octokit/rest';
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
-import { findAndReplaceInAllRepositories } from '../find-and-replace-in-github-file-in-all-repositories';
+import { findAndReplaceInAllRepositories } from '../find-and-replace-in-github-file-in-all-repositories.js';
 
 const argv = yargs(hideBin(process.argv))
   .usage(`$0 [Options]`, "Find and replace text in github file in all repositories")
