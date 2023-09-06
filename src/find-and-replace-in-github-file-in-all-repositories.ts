@@ -10,6 +10,10 @@ export interface FindAndReplaceInAllRepositoriesOptions extends Omit<FindAndRepl
   
   /** Owner of the GitHub repositories */
   owner: string;
+  /**
+   * Callback function for handling errors.
+   */
+  onError: (error: Error) => void;
 }
 
 /**
@@ -30,7 +34,7 @@ await findAndReplaceInAllRepositories({
 ```
  */
 export async function findAndReplaceInAllRepositories(options: FindAndReplaceInAllRepositoriesOptions): Promise<void> {
-  const { octokit, owner } = options;
+  const { octokit, owner , onError} = options;
   
   for await (const response of octokit.paginate.iterator(octokit.rest.repos.listForUser, {
     username: owner,
@@ -39,7 +43,7 @@ export async function findAndReplaceInAllRepositories(options: FindAndReplaceInA
     log({response})
     for (const repo of response.data) {
       log({repo})
-      await findAndReplaceInGithubFile({ ...options, repo: repo.name });
+      await findAndReplaceInGithubFile({ ...options, repo: repo.name }).catch(onError);
     }
   }
 }
