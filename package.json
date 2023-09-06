@@ -1,6 +1,6 @@
 {
   "name": "@freephoenix888/find-and-replace-in-github-file-in-all-repositories",
-  "version": "1.0.0-dev.0",
+  "version": "1.0.0-dev.1",
   "description": "Find and replace text in github file in all repositories",
   "main": "dist/find-and-replace-in-github-file-in-all-repositories.js",
   "types": "dist/find-and-replace-in-github-file-in-all-repositories.d.ts",
