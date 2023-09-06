@@ -15,7 +15,7 @@ Find and replace text in github file in all repositories
 ```
 find-and-replace-in-github-file-in-all-repositories [Options]
 
-Find and replace text in github file
+Find and replace text in github file in all repositories
 
 Options:
   --help           Show help                                           [boolean]
