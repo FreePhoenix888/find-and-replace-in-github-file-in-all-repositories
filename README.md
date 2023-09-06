@@ -1,4 +1,4 @@
-[![npm](https://img.shields.io/npm/v/@freephoenix888/deepclient-extensions.svg)](https://www.npmjs.com/package/@freephoenix888/deepclient-extensions)
+[![npm](https://img.shields.io/npm/v/@freephoenix888/find-and-replace-in-github-file-in-all-repositories.svg)](https://www.npmjs.com/package/@freephoenix888/find-and-replace-in-github-file-in-all-repositories)
 
 Find and replace text in github file in all repositories
 
