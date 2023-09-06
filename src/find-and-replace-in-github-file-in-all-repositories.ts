@@ -13,7 +13,7 @@ export interface FindAndReplaceInAllRepositoriesOptions extends Omit<FindAndRepl
   /**
    * Callback function for handling errors.
    */
-  onError: (error: Error) => void;
+  onError?: (error: Error) => void;
 }
 
 /**
@@ -34,7 +34,7 @@ await findAndReplaceInAllRepositories({
 ```
  */
 export async function findAndReplaceInAllRepositories(options: FindAndReplaceInAllRepositoriesOptions): Promise<void> {
-  const { octokit, owner , onError} = options;
+  const { octokit, owner , onError = (error) => {throw error}} = options;
   
   for await (const response of octokit.paginate.iterator(octokit.rest.repos.listForUser, {
     username: owner,
