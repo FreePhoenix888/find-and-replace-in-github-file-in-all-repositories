@@ -7,6 +7,23 @@ Find and replace text in github file in all repositories
 # Quick Start
 - [Find and replace text in a file in all repositories](https://freephoenix888.github.io/find-and-replace-in-github-file-in-all-repositories/functions/findAndReplaceInGithubFile.html#md:find-and-replace-text-in-a-file-in-all-repositories)
 
+# Demo
+- Clone this repository
+```
+git clone https://github.com/FreePhoenix888/find-and-replace-in-github-file-in-all-repositories.git
+```
+- Install dependencies
+```
+npm install
+```
+- Set environment variables by creating `.env.demo.local` by copying `env.demo` which contains "template" of environment variables
+- Change values in demo/demo.ts
+- Run demo
+```
+npx ts-node demo/demo.ts
+```
+
+
 # CLI
 ## Usage
 <!-- CLI_HELP_START -->
