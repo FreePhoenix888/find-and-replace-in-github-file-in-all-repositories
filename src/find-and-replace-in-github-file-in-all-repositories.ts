@@ -18,7 +18,7 @@ export interface FindAndReplaceInAllRepositoriesOptions extends Omit<FindAndRepl
   /**
    * Delay in milliseconds between requests to the GitHub API.
    */
-  delayInMs: number;
+  delayInMs?: number;
 }
 
 /**
