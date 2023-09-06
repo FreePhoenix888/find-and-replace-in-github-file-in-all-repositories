@@ -1,6 +1,7 @@
 import { FindAndReplaceInGithubFileOptions, findAndReplaceInGithubFile } from '@freephoenix888/find-and-replace-in-github-file';
 import { Octokit } from '@octokit/rest';
 import debug from 'debug';
+import delay from 'delay';
 
 const log = debug('find-and-replace-in-github-file-in-all-repositories');
 
@@ -14,6 +15,10 @@ export interface FindAndReplaceInAllRepositoriesOptions extends Omit<FindAndRepl
    * Callback function for handling errors.
    */
   onError?: (error: Error) => void;
+  /**
+   * Delay in milliseconds between requests to the GitHub API.
+   */
+  delayInMs: number;
 }
 
 /**
@@ -34,7 +39,7 @@ await findAndReplaceInAllRepositories({
 ```
  */
 export async function findAndReplaceInAllRepositories(options: FindAndReplaceInAllRepositoriesOptions): Promise<void> {
-  const { octokit, owner , onError = (error) => {throw error}} = options;
+  const { octokit, owner , onError = (error) => {throw error},delayInMs = 500} = options;
   
   for await (const response of octokit.paginate.iterator(octokit.rest.repos.listForUser, {
     username: owner,
@@ -44,6 +49,7 @@ export async function findAndReplaceInAllRepositories(options: FindAndReplaceInA
     for (const repo of response.data) {
       log({repo})
       await findAndReplaceInGithubFile({ ...options, repo: repo.name }).catch(onError);
+      await delay(delayInMs)
     }
   }
 }
