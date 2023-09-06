@@ -47,6 +47,11 @@ const argv = yargs(hideBin(process.argv))
     type: 'string',
     demandOption: true,
   })
+  .option('delayInMs', {
+    description: 'Delay in milliseconds between requests to the GitHub API',
+    type: 'number',
+    default: 500,
+  })
   .parseSync();
 
 const octokit = new Octokit({
@@ -60,6 +65,7 @@ findAndReplaceInAllRepositories({
   regex: new RegExp(argv.regex, argv.regexFlags), 
   replacement: argv.replacement,
   commitMessage: argv.commitMessage,
+  delayInMs: argv.delayInMs,
 })
   .then(() => {
     console.log('Successfully updated the file in all repositories.');
