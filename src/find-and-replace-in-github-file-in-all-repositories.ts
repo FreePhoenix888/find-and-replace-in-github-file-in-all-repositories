@@ -40,7 +40,8 @@ await findAndReplaceInAllRepositories({
  */
 export async function findAndReplaceInAllRepositories(options: FindAndReplaceInAllRepositoriesOptions): Promise<void> {
   const { octokit, owner , onError = (error) => {throw error},delayInMs = 500} = options;
-  
+  log({options})
+
   for await (const response of octokit.paginate.iterator(octokit.rest.repos.listForUser, {
     username: owner,
     per_page: 100
