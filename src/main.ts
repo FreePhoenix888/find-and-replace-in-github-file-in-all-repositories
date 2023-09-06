@@ -1,0 +1,1 @@
+export * from './find-and-replace-in-github-file-in-all-repositories.js'
