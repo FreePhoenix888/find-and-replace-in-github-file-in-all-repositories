@@ -46,6 +46,8 @@ Options:
                                                          [string] [default: "g"]
   --replacement    Replacement text                          [string] [required]
   --commitMessage  Commit message                            [string] [required]
+  --delayInMs      Delay in milliseconds between requests to the GitHub API
+                                                         [number] [default: 500]
 ```
 
 <!-- CLI_HELP_END -->
