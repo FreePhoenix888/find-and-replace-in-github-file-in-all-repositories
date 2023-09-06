@@ -1,5 +1,7 @@
 import { Octokit } from "@octokit/rest";
 import {findAndReplaceInAllRepositories} from '../src/main.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const octokit = new Octokit({ auth: 'YOUR_PERSONAL_ACCESS_TOKEN' });
 await findAndReplaceInAllRepositories({
