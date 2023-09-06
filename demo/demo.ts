@@ -3,7 +3,7 @@ import {findAndReplaceInAllRepositories} from '../src/main.js'
 import dotenv from 'dotenv'
 dotenv.config()
 
-const octokit = new Octokit({ auth: 'YOUR_PERSONAL_ACCESS_TOKEN' });
+const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
 await findAndReplaceInAllRepositories({
   octokit,
   owner: 'deep-foundation',
